@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafePath – Emergency Evacuation Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Programming in C · PBL Project</p>
+                <h1>SafePath</h1>
+                <p class="subtitle">
+                    Intelligent Emergency Evacuation Simulator using BFS shortest-path search in C.
+                </p>
+            </div>
+            <div class="legend">
+                <span><i class="swatch person"></i> Person</span>
+                <span><i class="swatch exit"></i> Exit</span>
+                <span><i class="swatch obstacle"></i> Obstacle</span>
+                <span><i class="swatch fire"></i> Fire</span>
+                <span><i class="swatch path"></i> Path</span>
+            </div>
+        </header>
+
+        <div id="engine-alert" class="engine-alert hidden" role="alert"></div>
+
+        <main class="dashboard">
+            <section class="panel controls-panel">
+                <h2>Grid Editor</h2>
+
+                <div class="control-group">
+                    <label for="grid-rows">Rows</label>
+                    <input id="grid-rows" type="number" min="3" max="20" value="8">
+                </div>
+
+                <div class="control-group">
+                    <label for="grid-cols">Columns</label>
+                    <input id="grid-cols" type="number" min="3" max="20" value="10">
+                </div>
+
+                <button id="resize-grid" class="btn secondary">Apply Grid Size</button>
+
+                <div class="tool-selector">
+                    <p class="label">Placement Tool</p>
+                    <div class="tool-buttons">
+                        <button class="tool-btn active" data-tool="S">Person</button>
+                        <button class="tool-btn" data-tool="E">Exit</button>
+                        <button class="tool-btn" data-tool="X">Obstacle</button>
+                        <button class="tool-btn" data-tool="F">Fire</button>
+                        <button class="tool-btn" data-tool=".">Empty</button>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="run-evacuation" class="btn primary">Run Evacuation</button>
+                    <button id="reset-grid" class="btn danger">Reset Grid</button>
+                </div>
+            </section>
+
+            <section class="panel grid-panel">
+                <div class="panel-header">
+                    <h2>Building Layout</h2>
+                    <p id="grid-meta">8 x 10 grid</p>
+                </div>
+                <div id="grid-container" class="grid-container" aria-label="Evacuation grid editor"></div>
+            </section>
+
+            <section class="panel results-panel">
+                <h2>Evacuation Results</h2>
+                <div class="result-card">
+                    <p class="result-label">Algorithm</p>
+                    <p id="result-algorithm" class="result-value">BFS</p>
+                </div>
+                <div class="result-card">
+                    <p class="result-label">Status</p>
+                    <p id="result-status" class="result-value status-pill">Waiting</p>
+                </div>
+                <div class="result-card">
+                    <p class="result-label">Path Length</p>
+                    <p id="result-length" class="result-value">—</p>
+                </div>
+                <div class="result-card full-width">
+                    <p class="result-label">Path Coordinates</p>
+                    <pre id="result-path" class="path-output">Run evacuation to see the shortest safe route.</pre>
+                </div>
+                <p id="result-message" class="result-message"></p>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+    "venvPath": "emergency-evacuation",
+    "venv": ".venv",
+    "pythonVersion": "3.13",
+    "include": [
+        "emergency-evacuation/api"
+    ]
+}

@@ -162,34 +162,7 @@ Runs the BFS evacuation simulation.
 - `NO SAFE ROUTE FOUND` – no route avoids obstacles and fire
 - `ENGINE NOT BUILT` – compile the C backend first
 
-## BFS Explanation (for viva)
 
-1. Enqueue the start cell and mark it visited.
-2. Dequeue the front cell.
-3. If the cell is an exit (`E`), reconstruct the path using parent pointers.
-4. Otherwise enqueue all unvisited walkable neighbors (up, down, left, right).
-5. Repeat until the queue is empty.
-
-BFS explores layer by layer, so the first exit reached is on a shortest path.
-
-### Data structures
-
-- **Queue** – frontier of cells to explore
-- **visited[]** – prevents revisiting cells
-- **parent[]** – rebuilds the final route
-
-## Frontend Usage
-
-1. Set grid size and click **Apply Grid Size**.
-2. Place Person, Exit, Obstacle, Fire, or Empty cells.
-3. Click **Run Evacuation** to compute the shortest safe route.
-4. Click **Reset Grid** to restore the demo layout.
-
-## Troubleshooting
-
-- **`ENGINE NOT BUILT`:** run `make` or `build.bat` inside `backend/`.
-- **MSYS2 path error:** use `cd "/c/Users/.../backend"` with quotes.
-- **False no-route results:** rebuild after code changes so `evacuation.exe` is up to date.
 
 ## What This Project Demonstrates
 
